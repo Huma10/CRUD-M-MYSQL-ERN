@@ -1,5 +1,5 @@
 # CRUD-M-MYSQL-ERN
-
+# REST API in NodeJS using Express Js, Sequelize, MYSQL as a database.
 # Initialize the repository with -- npm init.
 # Create a folder structure
     1. controllers
