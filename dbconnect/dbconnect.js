@@ -15,3 +15,13 @@ sequelize.authenticate().then(() => {
  }).catch((error) => {
     console.error('Unable to connect to the database: ', error);
  });
+
+ const db = {};
+
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+//db.employee = require('../models/employee')(sequelize,Sequelize);// for calling
+const employee = require('../models/employee');
+db.employee = employee(sequelize,Sequelize);
+module.exports = db;

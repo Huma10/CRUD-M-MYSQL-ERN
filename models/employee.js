@@ -1,53 +1,33 @@
-import _sequelize from 'sequelize';
-const { Model, Sequelize } = _sequelize;
-
-export default class employee extends Model {
-  static init(sequelize, DataTypes) {
-  return super.init({
-    id: {
+module.exports= (sequelize,Sequelize) => sequelize.define('employee', {
+  id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: Sequelize.BIGINT,
       allowNull: false,
       primaryKey: true
     },
     employee_id: {
-      type: DataTypes.STRING(255),
+      type: Sequelize.STRING(255),
       allowNull: true
     },
     name: {
-      type: DataTypes.STRING(255),
+      type: Sequelize.STRING(255),
       allowNull: true
     },
     age: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: true
     },
     blood_group: {
-      type: DataTypes.STRING(255),
+      type: Sequelize.STRING(255),
       allowNull: true
     },
     email: {
-      type: DataTypes.STRING(255),
+      type: Sequelize.STRING(255),
       allowNull: true
     },
     job_title: {
-      type: DataTypes.STRING(255),
+      type: Sequelize.STRING(255),
       allowNull: true
     }
-  }, {
-    sequelize,
-    tableName: 'employee',
-    timestamps: true,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "id" },
-        ]
-      },
-    ]
   });
-  }
-}
+ 
