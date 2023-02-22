@@ -15,3 +15,4 @@ app.listen(PORT,() =>{
 require('./routes/employee.routes')(app); // This 2 lines can be written separately
 // const routes = require('./routes/employee.routes')(app);
 // routes(app)
+require('./routes/auth.routes')(app);
