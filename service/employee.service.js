@@ -10,10 +10,12 @@ class EmployeeService {
             Employee.create({
                 name:body.name,
                 age:body.age,
-                blood_group:body.bloodGroup,
+                blood_group:body.blood_group,
                 email:body.email,
-                job_title:body.jobTitle,
-                employee_id:employeeId
+                job_title:body.job_title,
+                employee_id:employeeId,
+                imageName: body.imageName,
+                deptno: body.deptno
             }).then((result)=>{
                 resolve(result);
             }).catch((err)=>{
@@ -64,9 +66,9 @@ class EmployeeService {
             Employee.update({
                 name:body.name,
                 age:body.age,
-                blood_group:body.bloodGroup,
+                blood_group:body.blood_group,
                 email:body.email,
-                job_title:body.jobTitle,
+                job_title:body.job_title,
                 employee_id:employeeId
             },{where:{id:employeeId}}).then((result)=>{
                 resolve(result);

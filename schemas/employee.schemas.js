@@ -7,6 +7,8 @@ module.exports = {
     blood_group: Joi.string().required(),
     email: Joi.string().required(),
     job_title: Joi.string().required(),
+    imageName: Joi.string().optional(),
+    deptno: Joi.number().required()
   }),
   editEmployee: Joi.object({
     name: Joi.string().required(),
@@ -14,5 +16,6 @@ module.exports = {
     blood_group: Joi.string().required(),
     email: Joi.string().required(),
     job_title: Joi.string().required(),
+    deptno: Joi.number().required()
   }),
 };

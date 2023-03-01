@@ -1,5 +1,6 @@
 const db = require('../dbconnect/dbconnect.js');
 const EmployeeService = require('../service/employee.service')
+const ImageController = require('../controllers/imageupload.controller')
 const employeeSchema = require('../schemas/employee.schemas')
 const Util = require('../helper/util')
 const Response = require('../service/Response');
@@ -16,6 +17,7 @@ exports.createEmployee = async (req,resp) =>{
         if(employeeRequestValidation){
             const employeeId = await es.generateEmployeeId();
             const employeeData = await es.addEmployee(req.body,employeeId);
+          //  await ImageController.uploadImageToS3Bucket(req,resp);
             return resp.status(200).send(response.response(200,'OK','Employee Added Successfully','success'));
         }       
     } catch (error) {
@@ -23,6 +25,7 @@ exports.createEmployee = async (req,resp) =>{
             console.log("Validation failed",error.details);
             return resp.status(400).send(response.response(400,'Bad Request',Util.joiErrorMessage(error),'error'));
         }
+        console.log(error);
         return resp.status(500).send(response.response(500,'Internet Server Error','Something went wrong','error'));
     }
     

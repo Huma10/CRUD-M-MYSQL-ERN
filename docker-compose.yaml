@@ -1,0 +1,32 @@
+version: "3.2"
+services:
+  nodejs:
+    build: 
+      context: .
+    image: huma1002/crud-mern-app
+    networks:
+      - frontend
+      - backend
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASS=root
+      - MYSQL_DB=companydb
+    volumes:
+      - ./www/:/var/www/html/
+    ports:
+      - "7011:7011"
+    container_name: crud-mern-app
+  mysql:
+    image: mysql:8.0
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root 
+      - MYSQL_DATABASE=companydb
+    container_name: crud-mern-app
+networks:
+  frontend:
+  backend:

@@ -28,6 +28,14 @@ module.exports= (sequelize,Sequelize) => sequelize.define('employee', {
     job_title: {
       type: Sequelize.STRING(255),
       allowNull: true
-    }
+    },
+    imageName:{
+      type: Sequelize.STRING(255),
+      allowNull: true
+    },
+    deptno: {
+      type: Sequelize.BIGINT,
+      allowNull: false
+  },
   });
  
