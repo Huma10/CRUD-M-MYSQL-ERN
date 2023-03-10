@@ -1,10 +1,15 @@
 const express = require('express');
-
+const cors = require('cors')
 const PORT = process.env.PORT || 7011
 
 const app = express();
 app.use(express.json());
-
+// configure cors
+app.use(cors({
+    origin:'*',
+    methods:'*',
+    allowedHeaders:'*'
+}))
 // initailize db
 const db = require('./dbconnect/dbconnect.js');
 db.sequelize.sync({force:false});
